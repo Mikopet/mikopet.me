@@ -36,8 +36,8 @@
     <section id="thumbnails">
         {% for i in items %}
         <article>
-            <a class="thumbnail" href="{{ asset('images/market/fulls/'~i.id~'.jpg') }}" data-position="left center">
-                <img src="{{ asset('images/market/thumbs/'~i.id~'.jpg') }}" alt="" />
+            <a class="thumbnail" href="{{ asset('images/market/'~i.id~'.'~i.path) }}" data-position="left center">
+                <img src="{{ asset('images/market/'~i.id~'.'~i.path) }}" alt="" />
             </a>
             <h2>{{ i.title }}</h2>
             <p>{{ i.text }}</p>

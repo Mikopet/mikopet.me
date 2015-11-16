@@ -1,1 +1,65 @@
-Hello {{ name }}!
+<!DOCTYPE HTML>
+<!--
+	Lens by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Mikopet's Flea Market</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="{{ asset('bundles/market/js/ie/html5shiv.js') }}"></script><![endif]-->
+    <link rel="stylesheet" href="{{ asset('bundles/market/css/main.css') }}" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('bundles/market/css/ie8.css') }}" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="{{ asset('bundles/market/css/ie9.css') }}" /><![endif]-->
+    <noscript><link rel="stylesheet" href="{{ asset('bundles/market/css/noscript.css') }}" /></noscript>
+    <link rel="icon" type="image/png" href="{{ asset('bundles/market/images/favicon.png') }}" />
+</head>
+<body class="is-loading-0 is-loading-1 is-loading-2">
+
+<!-- Main -->
+<div id="main">
+
+    <!-- Header -->
+    <header id="header">
+        <h1>Bolhapiac <a href="mailto: mikopet@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></h1>
+        <p>Az alábbi kategóriák közül válogathatsz:</p>
+        <ul class="icons">
+            <li><a href="#">Bútor</a></li>
+            <li><a href="#">Műszaki cikk</a></li>
+            <li><a href="#">Egyéb</a></li>
+        </ul>
+    </header>
+
+    <!-- Thumbnail -->
+    <section id="thumbnails">
+        {% for i in items %}
+        <article>
+            <a class="thumbnail" href="{{ asset('images/market/fulls/'~i.id~'.jpg') }}" data-position="left center">
+                <img src="{{ asset('images/market/thumbs/'~i.id~'.jpg') }}" alt="" />
+            </a>
+            <h2>{{ i.title }}</h2>
+            <p>{{ i.text }}</p>
+        </article>
+        {% endfor %}
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="copyright">
+            <li>&copy; mikopet.me </li>
+            <li> Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="{{ asset('bundles/market/js/jquery.min.js') }}"></script>
+<script src="{{ asset('bundles/market/js/skel.min.js') }}"></script>
+<!--[if lte IE 8]><script src="{{ asset('bundles/market/js/ie/respond.min.js') }}"></script><![endif]-->
+<script src="{{ asset('bundles/market/js/main.js') }}"></script>
+
+</body>
+</html>

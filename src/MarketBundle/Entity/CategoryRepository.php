@@ -13,8 +13,9 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
     public function findAllNonEmpty()
     {
         return $this->createQueryBuilder('cat')
+            ->select('cat.name, cat.slug')
             ->join('MarketBundle:Item', 'i', 'WITH', 'cat.slug=i.category')
-            ->groupBy('cat.name')
+            ->groupBy('cat.name, cat.slug')
             ->getQuery()
             ->getResult();
     }

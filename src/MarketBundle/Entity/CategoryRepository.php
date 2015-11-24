@@ -10,4 +10,12 @@ namespace MarketBundle\Entity;
  */
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllNonEmpty()
+    {
+        return $this->createQueryBuilder('cat')
+            ->join('MarketBundle:Item', 'i', 'WITH', 'cat.slug=i.category')
+            ->groupBy('cat.name')
+            ->getQuery()
+            ->getResult();
+    }
 }

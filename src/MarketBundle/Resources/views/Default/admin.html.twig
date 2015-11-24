@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Mikopet's Flea Admin</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="text-center">Mikopet's Flea Administration</h1>
+
+    {% for message in app.session.flashbag.get('notice') %}
+        <div class="alert alert-info">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="col-md-6">
+        <h2 class="text-center">New Item</h2>
+        {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            {{ form_row(form.title, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.text, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.category, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.price, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.file, {'attr': {'class': 'form'}}) }}
+            <br/>
+            {{ form_row(form.save, { 'label': 'Save', 'attr': {'class': 'btn btn-lg btn-primary btn-block'} }) }}
+        {{ form_end(form) }}
+    </div>
+    <div class="col-md-6">
+        <h2 class="text-center">New Category</h2>
+        {{ form_start(form2) }}
+            {{ form_errors(form2) }}
+
+            {{ form_row(form2.slug, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form2.name, {'attr': {'class': 'form-control'}}) }}
+
+            <br/>
+            {{ form_row(form2.save, { 'label': 'Save', 'attr': {'class': 'btn btn-lg btn-primary btn-block'} }) }}
+        {{ form_end(form2) }}
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
+

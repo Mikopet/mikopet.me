@@ -10,4 +10,20 @@ namespace MarketBundle\Entity;
  */
 class ItemRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findFree()
+    {
+        return $this->createQueryBuilder('i')
+            ->where("i.price=0")
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findCategory($cat)
+    {
+        return $this->createQueryBuilder('i')
+            ->where("i.category=:category")
+            ->setParameter('category', $cat)
+            ->getQuery()
+            ->getResult();
+    }
 }

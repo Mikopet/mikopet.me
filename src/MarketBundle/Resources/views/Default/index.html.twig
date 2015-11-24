@@ -26,9 +26,10 @@
         <h1>Bolhapiac <a href="mailto: mikopet@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></h1>
         <p>Az alábbi kategóriák közül válogathatsz:</p>
         <ul class="icons">
-            <li><a href="#">Bútor</a></li>
-            <li><a href="#">Műszaki cikk</a></li>
-            <li><a href="#">Egyéb</a></li>
+            {% for c in categories %}
+            <li><a href="{{ path("index", {'slug': c.slug}) }}">{{ c.name }}</a></li>
+            {% endfor %}
+            <li><a href="{{ path("index", {'slug': 'free'}) }}">Ingyen cuccok</a></li>
         </ul>
     </header>
 
@@ -41,6 +42,7 @@
             </a>
             <h2>{{ i.title }}</h2>
             <p>{{ i.text }}</p>
+            <p>{{ i.price }} Ft</p>
         </article>
         {% endfor %}
     </section>

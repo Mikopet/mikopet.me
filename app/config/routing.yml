@@ -1,11 +1,10 @@
 market:
     resource: "@MarketBundle/Controller/"
     type:     annotation
-    prefix:   /market
+    prefix:   /
+    host:     "fleamarket.%domain%"
 
 main:
     resource: "@MainBundle/Controller/"
     type:     annotation
     prefix:   /
-
-

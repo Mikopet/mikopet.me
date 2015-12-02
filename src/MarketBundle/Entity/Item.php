@@ -53,6 +53,13 @@ class Item
     private $price;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="discount", type="integer", nullable=true)
+     */
+    private $discount;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     public $path;
@@ -179,6 +186,30 @@ class Item
     }
 
     /**
+     * Set discount
+     *
+     * @param integer $discount
+     *
+     * @return Item
+     */
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
+
+        return $this;
+    }
+
+    /**
+     * Get discount
+     *
+     * @return integer
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    /**
      * Get file.
      *
      * @return UploadedFile
@@ -292,4 +323,3 @@ class Item
         return 'images/market';
     }
 }
-

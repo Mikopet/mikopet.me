@@ -18,6 +18,14 @@ class ItemRepository extends \Doctrine\ORM\EntityRepository
             ->getResult();
     }
 
+    public function findDiscount()
+    {
+        return $this->createQueryBuilder('i')
+            ->where("i.discount IS NOT NULL")
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findCategory($cat)
     {
         return $this->createQueryBuilder('i')

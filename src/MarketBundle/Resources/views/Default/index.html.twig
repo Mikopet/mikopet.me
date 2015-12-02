@@ -29,6 +29,7 @@
             {% for c in categories %}
             <li><a href="{{ path("index", {'slug': c.slug}) }}">{{ c.name }}</a></li>
             {% endfor %}
+            <li><a href="{{ path("index", {'slug': 'discount'}) }}">Akciós cuccok</a></li>
             <li><a href="{{ path("index", {'slug': 'free'}) }}">Ingyen cuccok</a></li>
         </ul>
     </header>
@@ -40,9 +41,20 @@
             <a class="thumbnail" href="{{ asset('images/market/'~i.id~'.'~i.path) }}" data-position="left center">
                 <img src="{{ asset('images/market/'~i.id~'.'~i.path) }}" alt="" />
             </a>
-            <h2>{{ i.title }}</h2>
-            <p>{{ i.text }}</p>
-            <p>{{ i.price }} Ft</p>
+            <div style="background: rgba(25, 25, 25, .8); padding: 15px;">
+                <h2>{{ i.title }}</h2>
+                <p>{{ i.text }}</p>
+                <p>
+                    {% if i.discount %}
+                        <strong>Akció:</strong>
+                        <s>{{ i.price }} Ft</s>
+                        <span style="color: darkred;">{{ i.price*(100-i.discount)/100 }} Ft</span>
+                    {% else %}
+                        <strong>Irányár:</strong>
+                        {{ i.price }} Ft
+                    {% endif %}
+                </p>
+            </div>
         </article>
         {% endfor %}
     </section>

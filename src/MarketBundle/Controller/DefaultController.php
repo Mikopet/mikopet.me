@@ -8,6 +8,8 @@ use MarketBundle\Entity\Item;
 use MarketBundle\Entity\Category;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class DefaultController extends Controller
 {
@@ -23,17 +25,17 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $form = $this->createFormBuilder($item)
-            ->add('title', 'text')
-            ->add('text', 'textarea')
-            ->add('category', 'entity', array(
+            ->add('title')
+            ->add('text')
+            ->add('category', EntityType::class, array(
                 'placeholder' => 'Choose an option',
                 'class' => 'MarketBundle:Category',
-                'choice_label' => 'name',
-                'property' => 'category'
+                'choice_label' => 'name'
             ))
-            ->add('price', 'text')
-            ->add('file', 'file')
-            ->add('save', 'submit')
+            ->add('price')
+            ->add('discount')
+            ->add('file')
+            ->add('save', SubmitType::class)
             ->getForm();
 
         $form->handleRequest($request);
@@ -48,10 +50,10 @@ class DefaultController extends Controller
         }
 
         $form2 = $this->createFormBuilder($category)
-            ->add('slug', 'text')
-            ->add('name', 'text')
+            ->add('slug')
+            ->add('name')
 
-            ->add('save', 'submit')
+            ->add('save', SubmitType::class)
             ->getForm();
 
         $form2->handleRequest($request);
@@ -78,6 +80,8 @@ class DefaultController extends Controller
             ->getRepository('MarketBundle:Item');
         if ($slug=="free") {
             $items = $allitems->findFree();
+        } elseif ($slug=="discount") {
+                $items = $allitems->findDiscount();
         } elseif ($slug) {
             $items = $allitems->findCategory($slug);
         } else {

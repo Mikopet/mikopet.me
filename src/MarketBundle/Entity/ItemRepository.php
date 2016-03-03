@@ -10,10 +10,20 @@ namespace MarketBundle\Entity;
  */
 class ItemRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findAvailable()
+    {
+        return $this->createQueryBuilder('i')
+            ->where("i.status=0")
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findFree()
     {
         return $this->createQueryBuilder('i')
-            ->where("i.price=0")
+            ->where("i.status=0")
+            ->andWhere("i.price=0")
             ->getQuery()
             ->getResult();
     }
@@ -21,7 +31,8 @@ class ItemRepository extends \Doctrine\ORM\EntityRepository
     public function findDiscount()
     {
         return $this->createQueryBuilder('i')
-            ->where("i.discount IS NOT NULL")
+            ->where("i.status=0")
+            ->andWhere("i.discount IS NOT NULL")
             ->getQuery()
             ->getResult();
     }
@@ -29,7 +40,8 @@ class ItemRepository extends \Doctrine\ORM\EntityRepository
     public function findCategory($cat)
     {
         return $this->createQueryBuilder('i')
-            ->where("i.category=:category")
+            ->where("i.status=0")
+            ->andWhere("i.category=:category")
             ->setParameter('category', $cat)
             ->getQuery()
             ->getResult();

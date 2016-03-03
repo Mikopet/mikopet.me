@@ -60,6 +60,13 @@ class Item
     private $discount;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", options={"default" = 0})
+     */
+    private $status;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     public $path;
@@ -207,6 +214,30 @@ class Item
     public function getDiscount()
     {
         return $this->discount;
+    }
+
+    /**
+     * Set status
+     *
+     * @param integer $status
+     *
+     * @return Item
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return integer
+     */
+    public function getstatus()
+    {
+        return $this->status;
     }
 
     /**

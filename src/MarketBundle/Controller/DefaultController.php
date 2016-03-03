@@ -85,7 +85,7 @@ class DefaultController extends Controller
         } elseif ($slug) {
             $items = $allitems->findCategory($slug);
         } else {
-            $items = $allitems->findAll();
+            $items = $allitems->findAvailable();
         }
 
         $categories = $this->getDoctrine()

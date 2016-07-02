@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="{{ asset('bundles/main/css/main.css') }}" />
         <noscript><link rel="stylesheet" href="{{ asset('/main/css/noscript.css') }}" /></noscript>
         <!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('bundles/main/css/ie8.css') }}" /><![endif]-->
-        <!--[if lte IE 9]><link rel="stylesheet" href="{{ asset('bundles/main/css/ie9.css1') }}" /><![endif]-->
+        <!--[if lte IE 9]><link rel="stylesheet" href="{{ asset('bundles/main/css/ie9.css') }}" /><![endif]-->
         <link rel="icon" type="image/png" href="favicon.png" />
     </head>
     <body>
@@ -37,37 +37,33 @@
 
                         <article class="item thumb" data-width="250">
                             <h2>About me</h2>
-                            <a href="//about.mikopet.me"><img src="{{ asset('bundles/main/images/thumbs/about.png') }}" alt=""></a>
+                            <a href="{{ subdomain('about') }}"><img src="{{ asset('bundles/main/images/thumbs/about.png') }}" alt=""></a>
                         </article>
 
                         <article class="item thumb" data-width="350">
                             <h2>Blog</h2>
-                            <a href="//blog.mikopet.me"><img src="{{ asset('bundles/main/images/thumbs/blog.jpg') }}" alt=""></a>
+                            <a href="{{ subdomain('blog') }}"><img src="{{ asset('bundles/main/images/thumbs/blog.jpg') }}" alt=""></a>
                         </article>
 
                         <article class="item thumb" data-width="400">
                             <h2>Vocation</h2>
-                            <a href="//vocation.mikopet.me"><img src="{{ asset('bundles/main/images/thumbs/vocation.jpg') }}" alt=""></a>
+                            <a href="{{ subdomain('vocation') }}"><img src="{{ asset('bundles/main/images/thumbs/vocation.jpg') }}" alt=""></a>
                         </article>
 
                         <article class="item thumb" data-width="300">
                             <h2>Company</h2>
-                            <a href="//company.mikopet.me"><img src="{{ asset('bundles/main/images/thumbs/company.jpg') }}" alt=""></a>
+                            <a href="{{ subdomain('company') }}"><img src="{{ asset('bundles/main/images/thumbs/company.jpg') }}" alt=""></a>
                         </article>
 
                         <article class="item thumb" data-width="450">
                             <h2>Gaming</h2>
-                            <a href="//gaming.mikopet.me"><img src="{{ asset('bundles/main/images/thumbs/gaming.gif') }}" alt=""></a>
+                            <a href="{{ subdomain('gaming') }}"><img src="{{ asset('bundles/main/images/thumbs/gaming.gif') }}" alt=""></a>
                         </article>
-
-
-
-
 
 
                         <article class="item thumb" data-width="500">
                             <h2>Flea Market</h2>
-                            <a href="//fleamarket.mikopet.me"><img src="{{ asset('bundles/main/images/thumbs/market.jpg') }}" alt=""></a>
+                            <a href="{{ subdomain('fleamarket') }}"><img src="{{ asset('bundles/main/images/thumbs/market.jpg') }}" alt=""></a>
                         </article>
 
                         <article class="item thumb" data-width="300">
@@ -80,37 +76,38 @@
                             <a href="//youtube.com"><img src="{{ asset('bundles/main/images/thumbs/youtube.jpg') }}" alt=""></a>
                         </article>
 
+                        {#
                         <article class="item thumb" data-width="350">
                             <h2>Iceland Hungarian Community</h2>
                             <a href="//izland.hu"><img src="{{ asset('bundles/main/images/thumbs/izland.jpg') }}" alt=""></a>
                         </article>
+                        #}
 
 
                         <article class="item thumb" data-width="0">
                         </article>
-
 
                 </div>
             </div>
 
             <div id="footer">
                 <div class="left">
-                    <p>This is <strong>Parallelism</strong>, a responsive portfolio site template by <a href="http://html5up.net">HTML5 UP</a>. Free for personal<br />
-                    and commercial use under the <a href="http://html5up.net/license">Creative Commons Attribution</a> license.</p>
+                    <p>This is <strong>Parallelism</strong>, a responsive portfolio site template by <a href="//html5up.net">HTML5 UP</a>. Free for personal<br />
+                    and commercial use under the <a href="//html5up.net/license">Creative Commons Attribution</a> license.</p>
                 </div>
                 <div class="right">
                     <ul class="contact">
-                        <li><a href="https://twitter.com/Asmoderra" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="https://www.facebook.com/mikopet" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                        <li><a href="//twitter.com/Asmoderra" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="//facebook.com/mikopet" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
                         <!-- 
                         <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
                         <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
                         <li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
                         -->
-                        <li><a href="//about.mikopet.me/contact" class="icon fa-envelope"><span class="label">Email</span></a></li>
+                        <li><a href="{{ subdomain('about') }}/contact" class="icon fa-envelope"><span class="label">Email</span></a></li>
                     </ul>
                     <ul class="copyright">
-                        <li>2015 &copy; mikopet.me</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        <li>2016 &copy; mikopet.me</li><li>Design: <a href="//html5up.net">HTML5 UP</a></li>
                     </ul>
                 </div>
             </div>
@@ -126,17 +123,15 @@
             <!--[if lte IE 8]><script src="{{ asset('bundles/main/js/ie/respond.min.js') }}"></script><![endif]-->
             <script src="{{ asset('bundles/main/js/main.js') }}"></script>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-41303950-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
+              ga('create', 'UA-41303950-2', 'auto');
+              ga('send', 'pageview');
+            </script>
 
     </body>
 </html>

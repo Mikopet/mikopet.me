@@ -62,9 +62,9 @@ class Item
     /**
      * @var integer
      *
-     * @ORM\Column(name="status", type="integer", options={"default" = 0})
+     * @ORM\Column(name="status", type="integer", options={"default": 0})
      */
-    private $status;
+    private $status = 0;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)

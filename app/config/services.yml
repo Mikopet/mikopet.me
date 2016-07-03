@@ -2,6 +2,6 @@ services:
     app.twig_extension:
         class: MainBundle\Twig\AppExtension
         public: false
-        arguments: ['%domain%']
+        arguments: ["%domain%"]
         tags:
             - { name: twig.extension }
